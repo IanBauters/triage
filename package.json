@@ -1,0 +1,16 @@
+{
+  "name": "triage",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Yes/No diagnostic tool for Chromebooks, in the style of Apple's service troubleshooting.",
+  "scripts": {
+    "build": "node build.js",
+    "check": "node validate.js",
+    "test": "node build.js && node tests/paths.js"
+  },
+  "devDependencies": {
+    "bootstrap": "5.3.3",
+    "bootstrap-icons": "1.11.3",
+    "playwright": "1.56.1"
+  }
+}
