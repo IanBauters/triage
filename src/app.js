@@ -67,7 +67,7 @@
     const m = model(); const p = $('#manual-panel');
     p.hidden = !m; if (!m) return;
     $('#manual-body').innerHTML = `
-      <div class="tg-man-meta">${m.mts.length ? `Machine types ${m.mts.join(', ')}.` : esc(m.idHint || '')} Steps, part names and pictures come from ${esc(m.maker)}.</div>
+      <div class="tg-man-meta">${m.mts.length ? `Machine types ${m.mts.join(', ')}.` : esc(m.idHint || '')} Steps, part names and pictures come from ${esc(m.maker)}’s service manual, obtained via iFixit.</div>
       <ul class="tg-man-list">${m.highlights.map(h => `<li>${esc(h)}</li>`).join('')}</ul>
       <div class="tg-man-btns">
         ${m.views.length ? `<button type="button" class="btn-chip" data-gallery="views">${ic('laptop')}Ports and controls</button>` : ''}

@@ -48,6 +48,12 @@ npm test        # builds, then walks every Yes/No path in every model
 3. Put its pictures in `img/<model>/`.
 4. Run `npm test`.
 
-## Pictures
+## Sources
 
-The pictures in `img/` come from the manufacturers' service manuals (Lenovo and HP) and remain their property.
+The repair steps, part names, part numbers and pictures for each model come from the manufacturers' service manuals, obtained via [iFixit](https://www.ifixit.com):
+
+- *Lenovo 14e Chromebook Gen 2 and IdeaPad 3 Chrome 14APO6 Hardware Maintenance Manual*, first edition, May 2021, © Lenovo
+- *Lenovo 100e Chromebook Gen 4 and Lenovo 300e Yoga Chromebook Gen 4 Hardware Maintenance Manual*, first edition, January 2023, © Lenovo
+- *HP Chromebook 14 G7 Maintenance and Service Guide*, first edition, March 2021, © HP Development Company
+
+The pictures in `img/` remain the property of Lenovo and HP. The generic steps link to Google's Chromebook help pages.
