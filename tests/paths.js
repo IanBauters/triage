@@ -1,7 +1,7 @@
 const { chromium } = require('playwright'); const fs = require('fs');
 const path = require('path');
 const dir = path.join(__dirname, '..') + '/';
-const src = ['data.js', 'models.js', 'model-hp14g7.js', 'models-index.js'].map(f => fs.readFileSync(dir + 'src/' + f, 'utf8')).join('\n');
+const src = require('../src/files.json').map(f => fs.readFileSync(dir + 'src/' + f, 'utf8')).join('\n');
 const { SYMPTOMS: S, MODELS: M } = new Function(src + '; return { SYMPTOMS, MODELS };')();
 // Every path: y on symptom, n through all quick checks, then every branch of the deep dive (plus one quick "yes" path).
 function paths(sym) {

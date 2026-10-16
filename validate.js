@@ -1,6 +1,6 @@
 // Build-time integrity check: every branch, part reference and picture must resolve.
 const fs = require('fs'); const path = require('path'); const dir = __dirname;
-const src = ['data.js', 'models.js', 'model-hp14g7.js', 'models-index.js'].map(f => fs.readFileSync(path.join(dir, 'src', f), 'utf8')).join('\n');
+const src = require('./src/files.json').map(f => fs.readFileSync(path.join(dir, 'src', f), 'utf8')).join('\n');
 const { SYMPTOMS: S, MODELS: M } = new Function(src + '; return { SYMPTOMS, MODELS };')();
 const bad = []; const has = f => fs.existsSync(path.join(dir, f));
 const checkDeep = (deep, ctx, m) => deep.forEach((n, i) => ['yes', 'no'].forEach(k => {

@@ -12,8 +12,8 @@ for (const n of names) {
 }
 let html = fs.readFileSync(path.join(srcDir, 'src.html'), 'utf8');
 html = html.replace('/*BOOTSTRAP_CSS*/', () => css)
-  .replace('/*DATA_JS*/', () => fs.readFileSync(path.join(srcDir, 'data.js'), 'utf8'))
-  .replace('/*MODELS_JS*/', () => ['models.js', 'model-hp14g7.js', 'models-index.js'].map(f => fs.readFileSync(path.join(srcDir, f), 'utf8')).join('\n'))
+  .replace('/*DATA_JS*/', () => '')
+  .replace('/*MODELS_JS*/', () => require('./src/files.json').map(f => fs.readFileSync(path.join(srcDir, f), 'utf8')).join('\n'))
   .replace('/*ICONS_JSON*/', () => JSON.stringify(icons))
   .replace('/*APP_JS*/', () => fs.readFileSync(path.join(srcDir, 'app.js'), 'utf8'));
 // The built page is self-contained apart from the pictures in img/.

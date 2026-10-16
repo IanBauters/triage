@@ -9,6 +9,8 @@ A Yes/No diagnostic tool for Chromebooks, built with Bootstrap and modelled on t
 - **Model profiles** that replace the generic steps with the manufacturer's own repair steps, part names and pictures:
   - Lenovo 14e Chromebook Gen 2
   - Lenovo 300e Yoga Chromebook Gen 4
+  - Lenovo 500e Chromebook Gen 3
+  - HP Chromebook 11 G6 Education Edition (with part-number pickers)
   - HP Chromebook 14 G7 (with part-number pickers)
 - **Repair results** with a code, the part to replace, its removal steps, screws and pictures, and repair notes you can copy.
 - Works on phones and in light and dark mode. Nothing is sent anywhere; the device details are only kept in your own browser.
@@ -25,7 +27,7 @@ npm run build   # checks the data, then writes index.html
 npm test        # builds, then walks every Yes/No path in every model
 ```
 
-`npm test` needs the Playwright browser (`npx playwright install chromium`).
+`npm test` needs the Playwright browser (`npx playwright install chromium`). To use a browser that is already installed, set `CHROMIUM_PATH` to its executable.
 
 ## Project layout
 
@@ -33,8 +35,11 @@ npm test        # builds, then walks every Yes/No path in every model
 |---|---|
 | `src/data.js` | Generic symptom charts and repair categories |
 | `src/models.js` | Lenovo model profiles |
+| `src/model-l500e.js` | Lenovo 500e Chromebook Gen 3 profile |
+| `src/model-hp11g6.js` | HP Chromebook 11 G6 Education Edition profile |
 | `src/model-hp14g7.js` | HP Chromebook 14 G7 profile |
 | `src/models-index.js` | The list of models shown in the picker |
+| `src/files.json` | The order in which the source files are combined |
 | `src/app.js` | The page logic |
 | `src/src.html` | Page layout and styles |
 | `img/` | Pictures for each model |
@@ -44,7 +49,7 @@ npm test        # builds, then walks every Yes/No path in every model
 ## Adding a model
 
 1. Add a profile file in `src/` with its parts, removal steps, pictures and symptom charts. Copy the structure of `model-hp14g7.js`.
-2. Add it to `src/models-index.js` and to the file list in `build.js` and `validate.js`.
+2. Add the file to `src/files.json` (before `models-index.js`) and the profile to `src/models-index.js`.
 3. Put its pictures in `img/<model>/`.
 4. Run `npm test`.
 
@@ -54,6 +59,8 @@ The repair steps, part names, part numbers and pictures for each model come from
 
 - *Lenovo 14e Chromebook Gen 2 and IdeaPad 3 Chrome 14APO6 Hardware Maintenance Manual*, first edition, May 2021, © Lenovo
 - *Lenovo 100e Chromebook Gen 4 and Lenovo 300e Yoga Chromebook Gen 4 Hardware Maintenance Manual*, first edition, January 2023, © Lenovo
+- *Lenovo 100e/300e/500e Chromebook Gen 3 Hardware Maintenance Manual*, second edition, April 2022, © Lenovo
+- *HP Chromebook 11 G6 Education Edition Maintenance and Service Guide*, © HP Development Company
 - *HP Chromebook 14 G7 Maintenance and Service Guide*, first edition, March 2021, © HP Development Company
 
 The pictures in `img/` remain the property of Lenovo and HP. The generic steps link to Google's Chromebook help pages.
